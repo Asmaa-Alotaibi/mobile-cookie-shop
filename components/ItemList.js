@@ -3,11 +3,11 @@ import { observer } from "mobx-react";
 import SingleItem from "./SingleItem ";
 import { Content, List } from "native-base";
 
-const ItemList = () => {
+const ItemList = ({ items }) => {
   const itemList = items.map((e) => <SingleItem cake={e} key={e.id} />);
   return (
     <Content>
-      <List>{itemList} </List>
+      <List>{itemList}</List>
     </Content>
   );
 };

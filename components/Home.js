@@ -9,7 +9,7 @@ import {
   Title,
   TopStyling,
 } from "../styles";
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <HomeBackground source={bgimage}>
       <OverLayContainer>
@@ -17,9 +17,7 @@ const Home = () => {
           <Title> All About CheeseCake !</Title>
         </TopStyling>
         <BottomStyling>
-          <ButtonStyled
-            onPress={() => alert("Take me to the list of bakeries")}
-          >
+          <ButtonStyled onPress={() => navigation.navigate("BakeryList")}>
             Click here to skip
           </ButtonStyled>
         </BottomStyling>

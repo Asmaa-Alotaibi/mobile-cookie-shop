@@ -8,14 +8,16 @@ import {
   BakeryDetailImage,
   BakeryDetailWrapper,
 } from "../styles";
+import ItemList from "./ItemList";
 
-const BakeryDetail = () => {
-  const bakery = bakeryStore.bakeries[0];
+const BakeryDetail = ({ navigation, route }) => {
+  if (bakeryStore.loading) return <Spinner />;
+
+  const { bakery } = route.params;
 
   const cakesFromItemStore = bakery.items.map((e) =>
     itemStore.getItemById(e.id)
   );
-  if (bakeryStore.loading) return <Spinner />;
 
   return (
     <>

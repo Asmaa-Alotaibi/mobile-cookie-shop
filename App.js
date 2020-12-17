@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Home from "./components/Home";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+
 import { ThemeProvider } from "styled-components";
-import BakeryList from "./components/BakeryList";
-import BakeryDetail from "./components/BakeryDetail";
+import RootNavigator from "./components/Navigation";
+
 const theme = {
   light: {
     mainColor: "#242424", // main font color
@@ -19,16 +20,15 @@ const theme = {
     red: "#ff3232",
   },
 };
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <ThemeProvider theme={theme.light}>
-        {/* <Home /> */}
-        {/* <BakeryList /> */}
-        <BakeryDetail />
-      </ThemeProvider>
+    <ThemeProvider theme={theme.light}>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+    </ThemeProvider>
   );
 }
 
